@@ -10,13 +10,26 @@ import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
 import { defineConfig, loadEnv } from 'vite';
 import { fileURLToPath, URL }    from 'node:url';
 
+process.env.VITE_APP_TITLE       = pack.name;
+process.env.VITE_APP_DESCRIPTION = pack.description;
+process.env.VITE_APP_VERSION     = pack.version;
+process.env.VITE_APP_REPOSITORY  = pack.homepage;
+
+function htmlPlugin( env ) {
+    return {
+        name: 'html-transform',
+        transformIndexHtml: {
+            enforce: 'pre',
+            transform: ( html ) => html.replace( /%(.*?)%/g, ( match, p1 ) => env[ p1 ] ?? match )
+        }
+    };
+}
+
 // https://vitejs.dev/config/
 export default defineConfig( ( { command, mode } ) => {
     const env = loadEnv( mode, process.cwd(), '' );
 
     const overrides = {};
-
-    console.log( command, env );
 
     if ( command === 'build' && env.GITHUB_ACTIONS === 'true' ) {
         overrides.base = `/${ env.GITHUB_REPOSITORY.split( '/' ).pop().trim() }/`;
@@ -34,15 +47,15 @@ export default defineConfig( ( { command, mode } ) => {
                 styles: {
                     configFile: 'src/styles/settings.scss'
                 }
-            } )
+            } ),
+            htmlPlugin( env )
         ],
         define: {
-            VITE_APP_TITLE: pack.name,
             'process.env': {
-                VITE_APP_TITLE: pack.name,
-                VITE_APP_DESCRIPTION: pack.description,
-                VITE_APP_VERSION: pack.version,
-                VITE_APP_REPOSITORY: pack.homepage
+                VITE_APP_TITLE: process.env.VITE_APP_TITLE,
+                VITE_APP_DESCRIPTION: process.env.VITE_APP_DESCRIPTION,
+                VITE_APP_VERSION: process.env.VITE_APP_VERSION,
+                VITE_APP_REPOSITORY: process.env.VITE_APP_REPOSITORY
             }
         },
         resolve: {
