@@ -16,7 +16,7 @@ export default defineConfig( ( { command, mode } ) => {
 
     const overrides = {};
 
-    console.log( env );
+    console.log( command, env );
 
     if ( command === 'build' && env.GITHUB_ACTIONS === 'true' ) {
         overrides.base = `/${ env.GITHUB_REPOSITORY.split( '/' ).pop().trim() }/`;
