@@ -5,15 +5,26 @@
  */
 
 // Plugins
-import { loadFonts } from './webfontloader'
-import vuetify from './vuetify'
-import pinia from '../store'
-import router from '../router'
+import vuetify from './vuetify';
+import router  from '../router';
+import pinia   from '../store';
 
-export function registerPlugins (app) {
-  loadFonts()
-  app
-    .use(vuetify)
-    .use(router)
-    .use(pinia)
+import axios from 'axios';
+import pino  from 'pino';
+
+export function registerPlugins( app ) {
+    app.config.globalProperties.$axios  = axios;
+    app.config.globalProperties.$logger = pino( {
+        level: process.env.NODE_ENV === 'production' ? 'error' : 'trace'
+    } );
+
+    pinia.use( () => ( {
+        $axios: app.config.globalProperties.$axios,
+        $logger: app.config.globalProperties.$logger
+    } ) );
+
+    app
+        .use( vuetify )
+        .use( router )
+        .use( pinia );
 }

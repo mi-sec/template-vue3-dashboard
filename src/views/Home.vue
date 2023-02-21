@@ -1,7 +1,8 @@
 <template>
-  <HelloWorld />
+    <v-sheet>
+        Hello World!
+    </v-sheet>
 </template>
 
-<script setup>
-  import HelloWorld from '@/components/HelloWorld.vue'
+<script>
 </script>

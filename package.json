@@ -1,6 +1,7 @@
 {
     "name": "template-vue3-dashboard",
     "version": "0.0.0",
+    "description": "Basic Vue3 Dashboard",
     "private": true,
     "scripts": {
         "dev": "vite",
@@ -10,12 +11,16 @@
     },
     "dependencies": {
         "@mdi/font": "7.0.96",
+        "axios": "^1.3.3",
         "core-js": "^3.8.3",
+        "moment": "^2.29.4",
         "pinia": "^2.0.23",
+        "pino": "^8.10.0",
         "roboto-fontface": "*",
         "vue": "^3.2.13",
         "vue-router": "^4.0.0",
         "vuetify": "^3.0.0",
+        "vuex": "^4.1.0",
         "webfontloader": "^1.0.0"
     },
     "devDependencies": {
@@ -25,5 +30,19 @@
         "sass": "^1.55.0",
         "vite": "^3.1.9",
         "vite-plugin-vuetify": "^1.0.0-alpha.12"
+    },
+    "bugs": {
+        "url": "https://github.com/mi-sec/template-vue3-dashboard/issues"
+    },
+    "homepage": "https://github.com/mi-sec/template-vue3-dashboard#readme",
+    "keywords": [
+        "vue",
+        "dashboard",
+        "template"
+    ],
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mi-sec/template-vue3-dashboard.git"
     }
 }
