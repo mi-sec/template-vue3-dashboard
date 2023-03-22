@@ -7,15 +7,8 @@ export const useConfigStore = defineStore( 'config', {
         version: `v${ process.env.VITE_APP_VERSION }`,
         repoUrl: process.env.VITE_APP_REPOSITORY || '/',
         appbar: {
-            clipped: true,
-            dense: true
-        },
-        sidebar: {
-            model: null,
-            type: '',
-            clipped: true,
-            floating: false,
-            mini: false
+            color: '',
+            density: 'compact'
         },
         footer: {
             inset: false,

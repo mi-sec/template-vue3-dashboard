@@ -1,17 +1,11 @@
 <template>
     <v-app-bar
-        app
-        :clipped-left="config.appbar.clipped"
-        :dense="config.appbar.dense"
+        :color="config.appbar.color"
+        :density="config.appbar.density"
     >
-        <v-app-bar-nav-icon
-            aria-label="nav"
-            @click="config.sidebar.model = !config.sidebar.model"
-        />
-
         <v-toolbar-title class="headline">
-            <span>{{ title }}</span>
-            <span class="font-weight-light">{{ version }}</span>
+            <span>{{ config.title }}</span>
+            <span class="font-weight-light">{{ config.version }}</span>
         </v-toolbar-title>
 
         <v-spacer></v-spacer>
@@ -28,12 +22,16 @@
     </v-app-bar>
 </template>
 
-<script setup>
+<script>
 import { storeToRefs }    from 'pinia';
 import { useConfigStore } from '@/store/config';
 
-const config = storeToRefs( useConfigStore() );
-
-const title   = config.title.value;
-const version = config.version.value;
+export default {
+    name: 'AppBar',
+    data() {
+        return {
+            config: storeToRefs( useConfigStore() )
+        };
+    }
+};
 </script>
