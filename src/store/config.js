@@ -5,6 +5,7 @@ export const useConfigStore = defineStore( 'config', {
     state: () => ( {
         title: process.env.VITE_APP_TITLE,
         version: `v${ process.env.VITE_APP_VERSION }`,
+        repoUrl: process.env.VITE_APP_REPOSITORY || '/',
         appbar: {
             clipped: true,
             dense: true
