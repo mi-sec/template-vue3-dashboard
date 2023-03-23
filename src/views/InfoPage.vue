@@ -1,6 +1,6 @@
 <template>
     <v-container>
-        process.env:
+        env:
 
         <v-list
             v-for="(val, key) in env"
