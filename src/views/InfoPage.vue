@@ -9,9 +9,6 @@
             <v-list-item>
                 <code>{{ key }}</code>:
                 <kbd class="font-weight-light">{{ val }}</kbd>
-                <!--                    <code>{{ sKey }}</code>-->
-                <!--                    :-->
-                <!--                    <kbd class="font-weight-light">{{ sVal }}</kbd>-->
             </v-list-item>
         </v-list>
     </v-container>
