@@ -1,4 +1,10 @@
 {
+    "systembar": {
+        "text": "DEVELOPMENT",
+        "textColor": "white",
+        "backgroundColor": "grey",
+        "height": 12
+    },
     "appbar": {
         "color": "orange",
         "density": "compact"
