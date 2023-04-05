@@ -1,5 +1,6 @@
 <template>
     <v-app>
+        <AppSystemBar/>
         <AppBar/>
         <AppView/>
         <AppFooter/>
@@ -7,7 +8,8 @@
 </template>
 
 <script setup>
-import AppBar  from './AppBar.vue';
-import AppView from './AppView.vue';
-import AppFooter from './AppFooter.vue';
+import AppSystemBar from '@/layouts/default/AppSystemBar.vue';
+import AppBar       from '@/layouts/default/AppBar.vue';
+import AppView      from '@/layouts/default/AppView.vue';
+import AppFooter    from '@/layouts/default/AppFooter.vue';
 </script>

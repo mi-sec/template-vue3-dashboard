@@ -6,6 +6,12 @@ export const useConfigStore = defineStore( 'config', {
         title: process.env.VITE_APP_TITLE,
         version: `v${ process.env.VITE_APP_VERSION }`,
         repoUrl: process.env.VITE_APP_REPOSITORY || '/',
+        systembar: {
+            text: 'DEVELOPMENT',
+            textColor: 'white',
+            backgroundColor: 'grey',
+            height: 12
+        },
         appbar: {
             color: '',
             density: 'compact'

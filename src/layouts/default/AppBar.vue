@@ -18,7 +18,6 @@
                 Info
             </v-btn>
         </v-toolbar-items>
-
     </v-app-bar>
 </template>
 
